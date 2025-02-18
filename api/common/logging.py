@@ -1,9 +1,13 @@
 
 import logging
 from logging.handlers import RotatingFileHandler
+import os
 
 
 def setup_logging():
+
+    log_dir = 'logs'
+    os.makedirs(log_dir, exist_ok=True)
     # 创建根日志器
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
