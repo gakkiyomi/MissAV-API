@@ -142,21 +142,22 @@ def parse_movie_detail(tree) -> dict:
     release_date = div_info[0].text_content().strip().split("\n")[1].strip()
     number = div_info[1].text_content().strip().split("\n")[1].strip()
     jp_title = div_info[2].text_content().strip().split("\n")[1].strip()
-    actress = div_info[3].text_content().strip().split("\n")[1].strip()
-    genres = div_info[4].text_content().strip().split("\n")[1].strip()
-    series = div_info[5].text_content().strip().split("\n")[1].strip()
-    maker = div_info[6].text_content().strip().split("\n")[1].strip()
-    director = div_info[7].text_content().strip().split("\n")[1].strip()
-    tags = div_info[8].text_content().strip().split("\n")[1].strip()
     movie_info['release_date'] = release_date
     movie_info['number'] = number
     movie_info['jp_title'] = jp_title
-    movie_info['actress'] = actress
-    movie_info['genres'] = genres
-    movie_info['series'] = series
-    movie_info['maker'] = maker
-    movie_info['director'] = director
-    movie_info['tags'] = tags
+    if len(div_info) > 3:
+        actress = div_info[3].text_content().strip().split("\n")[1].strip()
+        genres = div_info[4].text_content().strip().split("\n")[1].strip()
+        series = div_info[5].text_content().strip().split("\n")[1].strip()
+        maker = div_info[6].text_content().strip().split("\n")[1].strip()
+        director = div_info[7].text_content().strip().split("\n")[1].strip()
+        tags = div_info[8].text_content().strip().split("\n")[1].strip()
+        movie_info['actress'] = actress
+        movie_info['genres'] = genres
+        movie_info['series'] = series
+        movie_info['maker'] = maker
+        movie_info['director'] = director
+        movie_info['tags'] = tags
     return movie_info
 
 
