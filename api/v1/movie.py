@@ -24,7 +24,7 @@ app = APIRouter(
 )
 
 
-@app.get("/{number}",
+@app.get("/number/{number}",
          response_model=BaseResponse,
          tags=["Movie API"],
          summary="Get movie by specified number",

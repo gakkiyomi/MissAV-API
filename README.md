@@ -19,3 +19,15 @@ uvicorn api.main:misscore --reload
 ```
 http://localhost:8000/docs
 ```
+
+## 📖 Localization
+
+Localized responses can be achieved by switching the `Accept-Language` in the request header.
+
+```curl
+curl -X 'GET' \
+  'http://localhost:8000/api/v1/movie/uncensored/fc2?page=1' \
+  -H 'Accept-Language: zh-CN' \
+  -H 'accept: application/json' \
+  -H 'auth-key: key from login'
+```
